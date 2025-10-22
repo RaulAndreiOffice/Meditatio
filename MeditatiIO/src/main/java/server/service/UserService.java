@@ -11,6 +11,9 @@ import server.repository.RoleRepository;
 import server.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import java.util.Optional;
+import server.DTO.RegisterRequest;
+import java.util.Set;
+import java.util.HashSet;
 
 @Service
 @Getter
@@ -22,10 +25,27 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public User registerUser(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        // Aici poți adăuga și roluri default la înregistrare
+    @Autowired
+    private RoleRepository roleRepository;
+
+    public User registerUser(RegisterRequest registerRequest) {
+       User user = new User();
+       user.setUsername(registerRequest.getUsername());
+       user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
+
+       //Logica pentru atribuirea roluriilor
+
+        Role userRole = roleRepository.findByName(registerRequest.getRoleName()).
+                orElseThrow(() -> new RuntimeException("Role not found"));
+
+        Set<Role> roles = new HashSet<>();
+        roles.add(userRole);
+        user.setRoles(roles);
+
+        user.setUsergrade(0.0);
+
         return userRepository.save(user);
+
     }
     // NOU: Metoda pentru actualizarea datelor
     public Optional<User> updateUser(Integer userId, User userDetails) {
@@ -48,5 +68,8 @@ public class UserService {
             return true;
         }
         return false;
+    }
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username).orElseThrow(() -> new RuntimeException("User not found with username: " + username));
     }
 }

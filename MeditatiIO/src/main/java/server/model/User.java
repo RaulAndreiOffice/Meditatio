@@ -22,6 +22,8 @@ public class User {
     @Column(name = "userpassword", nullable = false)
     private String password;
 
+    @Column(name = "usergrade")
+    private Double usergrade;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
