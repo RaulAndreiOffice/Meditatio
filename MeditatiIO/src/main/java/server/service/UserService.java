@@ -28,6 +28,7 @@ public class UserService {
     @Autowired
     private RoleRepository roleRepository;
 
+
     public User registerUser(RegisterRequest registerRequest) {
        User user = new User();
        user.setUsername(registerRequest.getUsername());
@@ -72,4 +73,5 @@ public class UserService {
     public User findByUsername(String username) {
         return userRepository.findByUsername(username).orElseThrow(() -> new RuntimeException("User not found with username: " + username));
     }
+
 }
