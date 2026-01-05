@@ -24,6 +24,12 @@ import server.service.AzureStorageService;
 import server.service.UserService; // Avem nevoie de UserService
 import java.util.List;
 import server.service.AssignmentService;
+import server.model.AssignmentSubmission;
+import java.util.Optional;
+import server.DTO.SubmissionDetailsDTO;
+import java.util.stream.Collectors;
+import server.DTO.GradeRequest;
+import server.DTO.GradedSubmissionViewDTO;
 
 @RestController
 @RequestMapping("/api/assignments")
@@ -40,7 +46,7 @@ public class AssignmentController {
     @Autowired
     private AssignmentRepository assignmentRepository;
 
-    // --- NOU: Injectăm serviciul Azure ---
+
     @Autowired
     private AzureStorageService azureStorageService;
 
@@ -48,6 +54,144 @@ public class AssignmentController {
     private UserService userService;
     @Autowired
     private AssignmentService assignmentService;
+
+
+    //  ENDPOINT PENTRU STUDENT
+
+    @GetMapping("/submission/graded-view/{id}")
+    @PreAuthorize("hasRole('STUDENT')")
+    public ResponseEntity<?> getGradedSubmissionView(
+            @PathVariable Integer id,
+            Authentication authentication
+    ) {
+        try {
+            User student = userService.findByUsername(authentication.getName());
+            AssignmentSubmission submission = assignmentService.getGradedSubmissionForStudent(id, student);
+
+            // Creăm un DTO curat pentru a-l trimite studentului
+            GradedSubmissionViewDTO dto = new GradedSubmissionViewDTO();
+            dto.setAssignmentTitle(submission.getAssignment().getAsstitle());
+            dto.setGrade(submission.getGrade());
+            dto.setStudentSubmissionUrl(submission.getGoogleDriveFileId());
+            dto.setProfessorDrawingData(submission.getProfessorFeedbackDrawing());
+
+            return ResponseEntity.ok(dto);
+
+        } catch (SecurityException e) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+    //  ENDPOINT PENTRU A ACORDA NOTĂ
+
+    @PostMapping("/submission/{id}/grade")
+    @PreAuthorize("hasRole('PROFESOR')")
+    public ResponseEntity<?> gradeAssignment(
+            @PathVariable Integer id,
+            @RequestBody GradeRequest gradeRequest,
+            Authentication authentication
+    ) {
+        try {
+            User professor = userService.findByUsername(authentication.getName());
+            AssignmentSubmission gradedSubmission = assignmentService.gradeSubmission(id, gradeRequest, professor);
+            return ResponseEntity.ok(gradedSubmission);
+        } catch (SecurityException e) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
+    // ENDPOINT PENTRU STUDENT (SĂ VADĂ NOTELE)
+    @GetMapping("/submissions/student/graded")
+    @PreAuthorize("hasRole('STUDENT')")
+    public ResponseEntity<List<SubmissionDetailsDTO>> getGradedSubmissionsForStudent(Authentication authentication) {
+        // 1. Găsește studentul logat
+        User student = userService.findByUsername(authentication.getName());
+
+        // 2. Caută rezolvările notate
+        List<AssignmentSubmission> submissions = submissionRepository.findGradedSubmissionsForStudent(student.getUser_id());
+
+        // 3. Transformă în DTO-uri
+        List<SubmissionDetailsDTO> dtos = submissions.stream().map(sub -> {
+            SubmissionDetailsDTO dto = new SubmissionDetailsDTO();
+            dto.setSubmissionId(sub.getSubmissionId());
+            dto.setSubmittedAt(sub.getSubmittedAt()); // Aceasta e data trimiterii
+            dto.setGrade(sub.getGrade());
+
+            // Student
+            SubmissionDetailsDTO.StudentDTO studentDTO = new SubmissionDetailsDTO.StudentDTO();
+            studentDTO.setUsername(sub.getStudent().getUsername());
+            dto.setStudent(studentDTO);
+
+            // Assignment
+            SubmissionDetailsDTO.AssignmentDTO assignmentDTO = new SubmissionDetailsDTO.AssignmentDTO();
+            assignmentDTO.setAssid(sub.getAssignment().getAssid());
+            assignmentDTO.setAsstitle(sub.getAssignment().getAsstitle());
+            dto.setAssignment(assignmentDTO);
+
+            return dto;
+        }).collect(Collectors.toList());
+
+        // 4. Returnează lista
+        return ResponseEntity.ok(dtos);
+    }
+
+    // ENDPOINT PENTRU PROFESOR
+    @GetMapping("/submissions/professor/me")
+    @PreAuthorize("hasRole('PROFESOR')")
+    public ResponseEntity<List<SubmissionDetailsDTO>> getAllSubmissionsForProfessor(Authentication authentication) {
+        // 1. Găsește profesorul logat
+        User professor = userService.findByUsername(authentication.getName());
+
+        // 2. Caută rezolvările (Entitățile)
+        List<AssignmentSubmission> submissions = submissionRepository.findAllSubmissionsForProfessor(professor.getUser_id());
+
+        // 3. Transformă Entitățile în DTO-uri
+        List<SubmissionDetailsDTO> dtos = submissions.stream().map(sub -> {
+            SubmissionDetailsDTO dto = new SubmissionDetailsDTO();
+            dto.setSubmissionId(sub.getSubmissionId());
+            dto.setSubmittedAt(sub.getSubmittedAt());
+
+            // Creăm DTO-ul pentru Student
+            SubmissionDetailsDTO.StudentDTO studentDTO = new SubmissionDetailsDTO.StudentDTO();
+            studentDTO.setUsername(sub.getStudent().getUsername());
+            dto.setStudent(studentDTO);
+
+            // Creăm DTO-ul pentru Assignment
+            SubmissionDetailsDTO.AssignmentDTO assignmentDTO = new SubmissionDetailsDTO.AssignmentDTO();
+            assignmentDTO.setAssid(sub.getAssignment().getAssid());
+            assignmentDTO.setAsstitle(sub.getAssignment().getAsstitle());
+            dto.setAssignment(assignmentDTO);
+
+            return dto;
+        }).collect(Collectors.toList());
+
+        // 4. Returnează lista de DTO-uri
+        return ResponseEntity.ok(dtos);
+    }
+
+    @PostMapping("/submit")
+    @PreAuthorize("hasRole('STUDENT')")
+    public ResponseEntity<?> submitAssignment(
+            @RequestParam("assignmentId") Integer assignmentId,
+            @RequestParam("description") String description,
+            @RequestParam("file") MultipartFile file,
+            Authentication authentication
+    ) {
+        try {
+            // Găsim studentul logat
+            User student = userService.findByUsername(authentication.getName());
+
+            // Apelăm serviciul
+            AssignmentSubmission submission = assignmentService.submitAssignment(assignmentId, description, file, student);
+
+            return ResponseEntity.ok(submission);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Eroare la trimiterea temei: " + e.getMessage());
+        }
+    }
 
     @PostMapping("/create")
     @PreAuthorize("hasRole('PROFESOR')") // Securizăm endpoint-ul
@@ -62,7 +206,7 @@ public class AssignmentController {
     ) {
         try {
             // Apelăm metoda de serviciu care face toată treaba
-            Assignments createdAssignment = azureStorageService.createAssignment(title, description, studentId, file);
+            Assignments createdAssignment = assignmentService.createAssignment(title, description, studentId, file);
             // Returnăm tema creată
             return ResponseEntity.ok(createdAssignment);
 
@@ -84,7 +228,7 @@ public class AssignmentController {
         return ResponseEntity.ok(assignments);
     }
 
-    // --- ENDPOINT NOU (2): Pentru a lua detaliile unei singure teme ---
+    // Pentru a lua detaliile unei singure teme
     @GetMapping("/{id}")
     @PreAuthorize("isAuthenticated()")
     public ResponseEntity<Assignments> getAssignmentById(@PathVariable Integer id) {
@@ -94,7 +238,7 @@ public class AssignmentController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // --- NOU: ENDPOINT PENTRU PROFESOR ---
+    // ENDPOINT PENTRU PROFESOR
     @GetMapping("/professor/me")
     @PreAuthorize("hasRole('PROFESOR')")
     public ResponseEntity<List<Assignments>> getAssignmentsForCurrentProfessor(Authentication authentication) {
@@ -113,14 +257,30 @@ public class AssignmentController {
             User professor = userService.findByUsername(authentication.getName());
             boolean deleted =assignmentService.deleteAssignment(id, professor);
             if (deleted) {
-                return ResponseEntity.ok().build(); // Succes, 200 OK
+                return ResponseEntity.ok().build();
             } else {
-                return ResponseEntity.notFound().build(); // Nu a fost găsită, 404
+                return ResponseEntity.notFound().build();
             }
         } catch (SecurityException e) {
             // Prins dacă profesorul încearcă să șteargă tema altcuiva
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
         }
+    }
+
+    // ENDPOINT PENTRU A OBȚINE REZOLVAREA STUDENTULUI
+    @GetMapping("/submission/{assignmentId}")
+    @PreAuthorize("hasRole('PROFESOR')")
+    public ResponseEntity<AssignmentSubmission> getSubmissionForAssignment(
+            @PathVariable Integer assignmentId
+    ) {
+        // Căutăm rezolvarea folosind noua metodă din repository
+        Optional<AssignmentSubmission> submission = submissionRepository.findFirstByAssignmentAssidOrderBySubmittedAtDesc(assignmentId);
+
+
+
+        return submission
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
 }

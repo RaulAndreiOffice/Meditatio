@@ -28,26 +28,33 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
+        System.out.println(" Incoming request: " + request.getRequestURI());
+        String path = request.getRequestURI();
+        if (path.contains("/chat")) {  //  mai sigur decât startsWith
+            System.out.println(" Bypass JWT filter for path: " + path);
+            filterChain.doFilter(request, response);
+            return;
+        }
 
         final String authHeader = request.getHeader("Authorization");
         final String jwt;
         final String username;
 
-        // 🧱 Dacă nu există header sau nu începe cu "Bearer ", trecem mai departe
+        //  Dacă nu există header sau nu începe cu "Bearer ", trecem mai departe
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
             return;
         }
 
-        // ✂️ Extragem tokenul (fără prefixul "Bearer ")
+        //  Extragem tokenul (fără prefixul "Bearer ")
         jwt = authHeader.substring(7);
-        username = jwtTokenProvider.getUsernameFromToken(jwt); // ✅ schimbat numele metodei
+        username = jwtTokenProvider.getUsernameFromToken(jwt); //  schimbat numele metodei
 
-        // 🔐 Dacă tokenul e valid și nu există deja autentificare în context:
+        // Dacă tokenul e valid și nu există deja autentificare în context:
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
-            if (jwtTokenProvider.validateToken(jwt)) { // ✅ adaptat la semnătura reală
+            if (jwtTokenProvider.validateToken(jwt)) { //  adaptat la semnătura reală
                 UsernamePasswordAuthenticationToken authToken =
                         new UsernamePasswordAuthenticationToken(
                                 userDetails,

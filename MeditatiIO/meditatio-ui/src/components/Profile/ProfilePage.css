@@ -1,0 +1,186 @@
+/* Stilurile existente pentru .profile-page, .profile-wrapper, .profile-container... */
+.profile-container {
+    position: relative;
+    min-height: 100vh;      /* ocupă toată înălțimea ecranului */
+    display: flex;
+    justify-content: center; /* centru orizontal */
+    align-items: center;     /* centru vertical */
+}
+.profile {
+    background: rgba(30, 30, 30, 0.85);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    color: white;
+
+    width: 50vw;        /* jumătate din lățimea ecranului */
+    height: 50vh;       /* jumătate din înălțimea ecranului */
+    min-width: 400px;
+    max-width: 600px;
+    min-height: 300px;
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* centru vertical conținut din pătrat */
+    align-items: center;     /* centru orizontal conținut din pătrat */
+    flex-basis: 50%;
+    flex-grow: 0;
+    flex-shrink: 1;
+
+    position: relative;
+    z-index: 2; /* să fie peste VideoBackground */
+}
+
+.profile-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1100px;
+    position: relative;
+    z-index: 3;
+}
+
+.profile-container {
+
+}
+
+.profile-container h1 {
+    margin-bottom: 25px;
+    font-size: 2.5rem;
+}
+.profile {
+    background: rgba(30, 30, 30, 0.85);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    flex-basis: 500px;
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+.profile-divider {
+    margin: 30px 0;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.update-button, .delete-button {
+    /* ... stilurile existente ... */
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+/* ... etc ... */
+
+
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    color: #333;
+}
+.Patrat_mijloc h3 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.loading-message, .error-message {
+    font-size: 1.1rem;
+    color: #ccc;
+    padding: 20px 0;
+}
+
+.error-message {
+    color: #ff8a80; /* Roșu deschis */
+}
+
+.assignment-table-prof {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: #e0e0e0; /* Culoare text deschisă */
+    text-align: left;
+}
+
+.assignment-table-prof th,
+.assignment-table-prof td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #555; /* Linie separator mai vizibilă */
+}
+
+.assignment-table-prof th {
+    background-color: rgba(0, 0, 0, 0.2); /* Fundal header ușor diferit */
+    font-size: 1rem;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.assignment-table-prof tr {
+    transition: background-color 0.2s;
+}
+
+.assignment-table-prof tr:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Fundal la hover */
+}
+
+.actions-cell {
+    display: flex;
+    gap: 10px;
+}
+
+.action-button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.grade-button {
+    background-color: #007bff;
+    color: white;
+}
+.grade-button:hover {
+    background-color: #0056b3;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+}
+.delete-button:hover {
+    background-color: #c82333;
+}

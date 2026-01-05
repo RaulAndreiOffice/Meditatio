@@ -1,0 +1,108 @@
+.professor-page-container {
+
+}
+
+.card-button {
+    background-color: #2ecc71;        /* Verde plăcut */
+    color: white;                     /* Text alb */
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
+    transition: all 0.25s ease;
+}
+
+.card-button:hover {
+    background-color: #27ae60;        /* Verde mai închis */
+    box-shadow: 0 6px 14px rgba(46, 204, 113, 0.4);
+    transform: translateY(-2px);
+}
+
+.card-button:active {
+    background-color: #1e8449;        /* Verde apăsat */
+    transform: translateY(0);
+    box-shadow: 0 3px 6px rgba(46, 204, 113, 0.3);
+}
+
+
+.content-box {
+    background-color: rgba(25, 30, 30, 0.8);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 600%;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.Patrat_stanga {
+    background-color: rgba(25, 30, 30, 0.8); /* Albastru */
+    padding: 40px;
+    border-radius: 15px; /* Colțuri rotunjite */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Umbră pentru efect de adâncime */
+    color: white; /* Culoarea textului (etichetelor) */
+
+    top: 50px;
+    left: 50px;
+
+    width: 500px;
+    height: 600px;
+
+
+
+    text-align: center;
+    position: relative;
+
+    z-index: 2;
+
+}
+.Patrat_mijloc {
+    background-color: rgba(25, 30, 30, 0.8); /* Albastru */
+    padding: 40px;
+    border-radius: 15px; /* Colțuri rotunjite */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Umbră pentru efect de adâncime */
+    color: white; /* Culoarea textului (etichetelor) */
+
+    top: -628px;
+    left: 675px;
+
+    width: 500px;
+    height: 600px;
+
+
+
+    text-align: center;
+    position: relative;
+
+    z-index: 2;
+
+}
+
+.Patrat_dreapta {
+    background-color: rgba(25, 30, 30, 0.8); /* Albastru */
+    padding: 40px;
+    border-radius: 15px; /* Colțuri rotunjite */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Umbră pentru efect de adâncime */
+    color: white; /* Culoarea textului (etichetelor) */
+
+    top: -1310px;
+    left: 1300px;
+
+    width: 500px;
+    height: 600px;
+
+
+
+    text-align: center;
+    position: relative;
+
+    z-index: 2;
+
+}

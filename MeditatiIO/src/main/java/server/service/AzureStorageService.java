@@ -30,12 +30,7 @@ public class AzureStorageService {
     @Value("${azure.storage.container-name}")
     private String containerName;
 
-    /**
-     * Această metodă se ocupă DOAR de upload-ul fișierului în Azure.
-     * @param file Fișierul primit de la React
-     * @return URL-ul public al fișierului încărcat
-     * @throws IOException
-     */
+     // Această metodă se ocupă DOAR de upload-ul fișierului în Azure.
     public String upload(MultipartFile file) throws IOException {
         // Obține clientul pentru containerul specificat
         BlobContainerClient containerClient = blobServiceClient.getBlobContainerClient(containerName);
@@ -58,10 +53,9 @@ public class AzureStorageService {
         return blobClient.getBlobUrl();
     }
 
-    /**
-     * Această metodă creează tema, apelează metoda de upload
-     * și salvează totul în baza de date.
-     */
+
+     //Această metodă creează tema, apelează metoda de upload
+
     public Assignments createAssignment(String title, String description, Long studentId, MultipartFile file) throws Exception {
 
         // 1. Găsește studentul
@@ -87,8 +81,5 @@ public class AzureStorageService {
         return assignmentRepository.save(assignment);
     }
 
-    // Am eliminat celelalte metode (submitAssignment, getAll...)
-    // care erau în fișierul tău original
-    // pentru a ne concentra pe 'create'. Le poți adăuga înapoi dacă e nevoie.
 
 }

@@ -1,0 +1,67 @@
+/* Containerul pentru butoanele de navigare */
+.nav-container {
+  /* Proprietățile existente */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+
+
+  position: sticky;      /* O face să rămână "lipită" sus la scroll */
+  top: 0;                /* Se lipește de marginea de sus */
+  width: 100%;           /* Ocupă toată lățimea */
+  z-index: 10;           /* Se asigură că stă deasupra altor elemente */
+  background-color: rgba(0, 0, 0, 0.5); /* Fundal negru cu 50% transparență */
+  box-sizing: border-box; /* Asigură că padding-ul nu afectează lățimea totală */
+}
+
+/* Stil pentru fiecare buton */
+.nav-button {
+  background-color: #808080; /* Culoare de fundal */
+  color: white; /* Culoare text */
+  border: none;
+  padding: 8px 16px; /* Mărime */
+  margin-left: 10px; /* Spațiu între butoane */
+  border-radius: 5px; /* Colțuri rotunjite */
+  cursor: pointer; /* Schimbă cursorul la hover */
+  text-decoration: none; /* Scoate sublinierea de la Link */
+  font-size: 16px;
+  transition: background-color 0.3s; /* Efect de tranziție */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Adaugă o umbră subtilă */
+  border: 1px solid rgba(255, 255, 255, 0.7); /* Opțional: adaugă o margine albă, semi-transparentă */
+}
+
+/* Stil la hover pentru buton */
+.nav-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px); /* Mută butonul puțin mai sus */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Mărește umbra */
+}
+/*  Stil pentru imaginea logo */
+.logo-image {
+  height: 50px; /* Setează o înălțime fixă pentru logo */
+  width: auto; /* Lățimea se va ajusta automat pentru a păstra proporțiile */
+}
+/* Stil pentru mesajul de bun venit */
+.welcome-user {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-right: 15px;
+  align-self: center; /* Se aliniază vertical cu butoanele */
+}
+
+/* Stil specific pentru butonul de Logout (opțional) */
+.logout-button {
+  background-color: #dc3545; /* O culoare roșie */
+  border-color: #dc3545;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
+}
+
+.content-container {
+  position: relative; /* Necesar pentru a-i putea da un z-index */
+  z-index: 1;         /* Îl pune pe stratul 1 (peste video, care e -100) */
+}

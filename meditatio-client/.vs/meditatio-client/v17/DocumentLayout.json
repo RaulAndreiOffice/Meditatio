@@ -1,0 +1,134 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\raulb\\Documents\\An4\\SCD\\SCD_P\\Meditatio\\meditatio-client\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0AFF7D52-9389-456E-A7F4-5416565D302A}|meditatio-client\\meditatio-client.csproj|c:\\users\\raulb\\documents\\an4\\scd\\scd_p\\meditatio\\meditatio-client\\meditatio-client\\formadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AFF7D52-9389-456E-A7F4-5416565D302A}|meditatio-client\\meditatio-client.csproj|solutionrelative:meditatio-client\\formadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AFF7D52-9389-456E-A7F4-5416565D302A}|meditatio-client\\meditatio-client.csproj|C:\\Users\\raulb\\Documents\\An4\\SCD\\SCD_P\\Meditatio\\meditatio-client\\meditatio-client\\formadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0AFF7D52-9389-456E-A7F4-5416565D302A}|meditatio-client\\meditatio-client.csproj|solutionrelative:meditatio-client\\formadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AFF7D52-9389-456E-A7F4-5416565D302A}|meditatio-client\\meditatio-client.csproj|C:\\Users\\raulb\\Documents\\An4\\SCD\\SCD_P\\Meditatio\\meditatio-client\\meditatio-client\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0AFF7D52-9389-456E-A7F4-5416565D302A}|meditatio-client\\meditatio-client.csproj|solutionrelative:meditatio-client\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AFF7D52-9389-456E-A7F4-5416565D302A}|meditatio-client\\meditatio-client.csproj|C:\\Users\\raulb\\Documents\\An4\\SCD\\SCD_P\\Meditatio\\meditatio-client\\meditatio-client\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AFF7D52-9389-456E-A7F4-5416565D302A}|meditatio-client\\meditatio-client.csproj|solutionrelative:meditatio-client\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AFF7D52-9389-456E-A7F4-5416565D302A}|meditatio-client\\meditatio-client.csproj|C:\\Users\\raulb\\Documents\\An4\\SCD\\SCD_P\\Meditatio\\meditatio-client\\meditatio-client\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AFF7D52-9389-456E-A7F4-5416565D302A}|meditatio-client\\meditatio-client.csproj|solutionrelative:meditatio-client\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AFF7D52-9389-456E-A7F4-5416565D302A}|meditatio-client\\meditatio-client.csproj|C:\\Users\\raulb\\Documents\\An4\\SCD\\SCD_P\\Meditatio\\meditatio-client\\meditatio-client\\formcreateuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0AFF7D52-9389-456E-A7F4-5416565D302A}|meditatio-client\\meditatio-client.csproj|solutionrelative:meditatio-client\\formcreateuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AFF7D52-9389-456E-A7F4-5416565D302A}|meditatio-client\\meditatio-client.csproj|C:\\Users\\raulb\\Documents\\An4\\SCD\\SCD_P\\Meditatio\\meditatio-client\\meditatio-client\\formcreateuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AFF7D52-9389-456E-A7F4-5416565D302A}|meditatio-client\\meditatio-client.csproj|solutionrelative:meditatio-client\\formcreateuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormAdmin.cs",
+              "DocumentMoniker": "C:\\Users\\raulb\\Documents\\An4\\SCD\\SCD_P\\Meditatio\\meditatio-client\\meditatio-client\\FormAdmin.cs",
+              "RelativeDocumentMoniker": "meditatio-client\\FormAdmin.cs",
+              "ToolTip": "C:\\Users\\raulb\\Documents\\An4\\SCD\\SCD_P\\Meditatio\\meditatio-client\\meditatio-client\\FormAdmin.cs",
+              "RelativeToolTip": "meditatio-client\\FormAdmin.cs",
+              "ViewState": "AgIAAPEAAAAAAAAAAAAgwGMBAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T13:49:36.436Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormCreateUser.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\raulb\\Documents\\An4\\SCD\\SCD_P\\Meditatio\\meditatio-client\\meditatio-client\\FormCreateUser.cs",
+              "RelativeDocumentMoniker": "meditatio-client\\FormCreateUser.cs",
+              "ToolTip": "C:\\Users\\raulb\\Documents\\An4\\SCD\\SCD_P\\Meditatio\\meditatio-client\\meditatio-client\\FormCreateUser.cs [Design]",
+              "RelativeToolTip": "meditatio-client\\FormCreateUser.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T11:09:17.263Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FormCreateUser.cs",
+              "DocumentMoniker": "C:\\Users\\raulb\\Documents\\An4\\SCD\\SCD_P\\Meditatio\\meditatio-client\\meditatio-client\\FormCreateUser.cs",
+              "RelativeDocumentMoniker": "meditatio-client\\FormCreateUser.cs",
+              "ToolTip": "C:\\Users\\raulb\\Documents\\An4\\SCD\\SCD_P\\Meditatio\\meditatio-client\\meditatio-client\\FormCreateUser.cs",
+              "RelativeToolTip": "meditatio-client\\FormCreateUser.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAUwEcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T11:07:30.717Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ApiService.cs",
+              "DocumentMoniker": "C:\\Users\\raulb\\Documents\\An4\\SCD\\SCD_P\\Meditatio\\meditatio-client\\meditatio-client\\ApiService.cs",
+              "RelativeDocumentMoniker": "meditatio-client\\ApiService.cs",
+              "ToolTip": "C:\\Users\\raulb\\Documents\\An4\\SCD\\SCD_P\\Meditatio\\meditatio-client\\meditatio-client\\ApiService.cs",
+              "RelativeToolTip": "meditatio-client\\ApiService.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T10:20:51.435Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormLogin.cs",
+              "DocumentMoniker": "C:\\Users\\raulb\\Documents\\An4\\SCD\\SCD_P\\Meditatio\\meditatio-client\\meditatio-client\\FormLogin.cs",
+              "RelativeDocumentMoniker": "meditatio-client\\FormLogin.cs",
+              "ToolTip": "C:\\Users\\raulb\\Documents\\An4\\SCD\\SCD_P\\Meditatio\\meditatio-client\\meditatio-client\\FormLogin.cs",
+              "RelativeToolTip": "meditatio-client\\FormLogin.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwDoAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T10:01:27.652Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormLogin.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\raulb\\Documents\\An4\\SCD\\SCD_P\\Meditatio\\meditatio-client\\meditatio-client\\FormLogin.cs",
+              "RelativeDocumentMoniker": "meditatio-client\\FormLogin.cs",
+              "ToolTip": "C:\\Users\\raulb\\Documents\\An4\\SCD\\SCD_P\\Meditatio\\meditatio-client\\meditatio-client\\FormLogin.cs [Design]",
+              "RelativeToolTip": "meditatio-client\\FormLogin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T13:39:59.926Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormAdmin.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\raulb\\Documents\\An4\\SCD\\SCD_P\\Meditatio\\meditatio-client\\meditatio-client\\FormAdmin.cs",
+              "RelativeDocumentMoniker": "meditatio-client\\FormAdmin.cs",
+              "ToolTip": "C:\\Users\\raulb\\Documents\\An4\\SCD\\SCD_P\\Meditatio\\meditatio-client\\meditatio-client\\FormAdmin.cs [Design]",
+              "RelativeToolTip": "meditatio-client\\FormAdmin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T13:46:37.543Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

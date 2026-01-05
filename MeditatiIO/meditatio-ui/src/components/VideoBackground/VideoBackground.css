@@ -1,0 +1,23 @@
+.video-background {
+    position: fixed; /* Rămâne fix pe ecran, chiar și la scroll */
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100; /* Trimite elementul în spatele tuturor celorlalte */
+    background-size: cover;
+    overflow: hidden; /* Ascunde orice parte a videoului care depășește ecranul */
+
+    position: fixed; /* Îl scoate din fluxul normal al paginii */
+    /* ...proprietăți de mărime... */
+    z-index: -100;   /* Îl trimite în "subsol", în spatele a tot */
+}
+
+/* Asigură-te că videoul din interiorul containerului se întinde corect */
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Acoperă tot spațiul, decupând dacă este necesar, fără a distorsiona */
+}

@@ -17,7 +17,7 @@ public class JwtTokenProvider {
             return Keys.hmacShaKeyFor(jwtSecret.getBytes());
         }
 
-        // ✅ Generează token după autentificare
+        //  Generează token după autentificare
         public String generateToken(Authentication authentication) {
             String username = authentication.getName();
 
@@ -29,7 +29,7 @@ public class JwtTokenProvider {
                     .compact();
         }
 
-        // ✅ Extrage username-ul din token
+        //  Extrage username-ul din token
         public String getUsernameFromToken(String token) {
             return Jwts.parserBuilder()
                     .setSigningKey(getSigningKey())
@@ -39,7 +39,7 @@ public class JwtTokenProvider {
                     .getSubject();
         }
 
-        // ✅ Verifică dacă tokenul e valid
+        // Verifică dacă tokenul e valid
         public boolean validateToken(String token) {
             try {
                 Jwts.parserBuilder()

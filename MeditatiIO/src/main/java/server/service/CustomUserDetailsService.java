@@ -13,7 +13,7 @@ import server.repository.UserRepository;
 import java.util.stream.Collectors;
 import java.util.Set;
 
-@Service // Marchează clasa ca un Serviciu Spring
+@Service
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired

@@ -10,7 +10,7 @@ import java.util.List;
 public class JwtAuthResponse {
     private String token;
     private String tokenType = "Bearer";
-    private Integer userId; // ID-ul de care ai nevoie
+    private Integer userId;
     private String username;
     private List<String> roles;
 

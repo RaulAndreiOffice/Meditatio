@@ -1,0 +1,69 @@
+/* Container principal care centrează totul pe pagină */
+.login-page {
+    display: flex !important;
+    justify-content: center !important; /* Centrează orizontal */
+    align-items: center !important;    /* Centrează vertical */
+    height: calc(100vh - 80px) !important; /* Ocupă înălțimea ecranului, minus navbar */
+    padding: 20px;
+}
+
+/* patratul */
+.login-container {
+    background-color: rgba(25, 30, 30, 0.8); /* Albastru */
+    padding: 40px;
+    border-radius: 15px; /* Colțuri rotunjite */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Umbră pentru efect de adâncime */
+    color: white; /* Culoarea textului (etichetelor) */
+    width: 100%;
+    max-width: 450px; /* Lățime maximă */
+    text-align: center;
+    position: relative;
+    z-index: 2;
+
+}
+
+.login-container h2 {
+    margin-bottom: 25px; /* Spațiu sub titlu */
+    font-size: 2.5rem;
+}
+
+/* Stil pentru câmpurile de input și etichete */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Asigură că padding-ul nu afectează lățimea */
+    color: #333; /* Culoarea textului scris în câmp */
+}
+
+/* Stil pentru butonul de login */
+.login-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ffffff; /* Buton alb */
+    color: #808080;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.login-button:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.02); /* Mărește puțin la hover */
+}

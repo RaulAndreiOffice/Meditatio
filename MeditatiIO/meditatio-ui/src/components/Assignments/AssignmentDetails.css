@@ -1,0 +1,40 @@
+.assignment-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px;
+    height: 100vh;
+}
+
+.assignment-left {
+    width: 60%;
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.assignment-right {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #eef6ff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.assignment-right button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.assignment-right button:hover {
+    background: #0056b3;
+}

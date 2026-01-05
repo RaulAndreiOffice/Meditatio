@@ -48,7 +48,7 @@ public class UserService {
         return userRepository.save(user);
 
     }
-    // NOU: Metoda pentru actualizarea datelor
+    //  Metoda pentru actualizarea datelor
     public Optional<User> updateUser(Integer userId, User userDetails) {
         return userRepository.findById(userId).map(user -> {
             // Actualizăm doar câmpurile care sunt furnizate
@@ -62,7 +62,7 @@ public class UserService {
             return userRepository.save(user);
         });
     }
-    // NOU: Metoda pentru ștergerea contului
+    //  Metoda pentru ștergerea contului
     public boolean deleteUser(Integer userId) {
         if (userRepository.existsById(userId)) {
             userRepository.deleteById(userId);
