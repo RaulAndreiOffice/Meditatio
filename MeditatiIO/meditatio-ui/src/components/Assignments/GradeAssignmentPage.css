@@ -1,79 +1,141 @@
 .grade-page-container {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
     gap: 20px;
-    min-height: calc(100vh - 80px); /* Minus navbar */
-    background-color: #f4f7fc;
+    padding: 24px 28px;
+    min-height: calc(100vh - 60px);
+    position: relative;
+    z-index: 1;
 }
 
-/* Panoul din stânga - Canvas-ul */
 .grade-panel-left {
-    flex: 3; /* Ocupă mai mult spațiu */
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    flex: 3;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(8px);
+    color: var(--color-text);
 }
 
-/* Panoul din dreapta - Referința */
 .grade-panel-right {
-    flex: 2; /* Ocupă mai puțin spațiu */
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    height: fit-content; /* Să nu se întindă inutil */
+    flex: 2;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(8px);
+    color: var(--color-text);
+    height: fit-content;
 }
 
-.grade-panel-left h3, .grade-panel-right h3 {
-    margin-top: 0;
-    color: #1b3c73;
-    border-bottom: 2px solid #e0e0e0;
+.grade-panel-left h3,
+.grade-panel-right h3 {
+    margin: 0 0 16px 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text);
+    border-bottom: 2px solid var(--color-accent);
     padding-bottom: 10px;
 }
 
-/* Imaginea de referință (dreapta) */
 .grade-panel-right img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
-    margin-top: 15px;
+    border-radius: var(--radius-md);
+    margin-top: 12px;
+    border: 1px solid var(--color-border);
 }
 
-/* Butoanele de control pentru canvas */
 .canvas-controls {
-    margin-bottom: 15px;
+    margin-bottom: 14px;
     display: flex;
     gap: 10px;
-}
-.canvas-controls button {
-    padding: 8px 12px;
-    font-size: 14px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-    transition: background-color 0.2s;
-}
-.canvas-controls button:hover {
-    background-color: #0056b3;
-}
-.canvas-controls button:first-of-type {
-    background-color: #dc3545;
-}
-.canvas-controls button:first-of-type:hover {
-    background-color: #c82333;
+    flex-wrap: wrap;
 }
 
-/* Mesajele de încărcare/eroare */
+.canvas-controls button {
+    padding: 8px 16px;
+    font-size: 0.875rem;
+    font-family: var(--font);
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    background: var(--color-blue);
+    color: white;
+    transition: transform var(--transition), opacity var(--transition);
+}
+
+.canvas-controls button:hover {
+    transform: translateY(-1px);
+    opacity: 0.88;
+}
+
+.canvas-controls button:first-of-type {
+    background: var(--color-red);
+}
+
+.grading-section {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-border);
+}
+
+.grade-input-field {
+    width: 100px;
+    padding: 8px 12px;
+    margin: 10px 10px 10px 0;
+    font-size: 1rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    font-family: var(--font);
+    outline: none;
+    transition: border-color var(--transition);
+}
+
+.grade-input-field:focus {
+    border-color: var(--color-accent);
+}
+
+.submit-grade-button {
+    padding: 10px 20px;
+    background: var(--color-green);
+    color: white;
+    border: none;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    font-family: var(--font);
+    box-shadow: 0 4px 12px rgba(34,197,94,0.3);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.submit-grade-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(34,197,94,0.4);
+}
+
+.submit-grade-button:disabled {
+    background: rgba(255,255,255,0.1);
+    color: var(--color-text-muted);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
 .grade-loading {
     padding: 50px;
     text-align: center;
-    font-size: 1.5rem;
-    color: #555;
+    font-size: 1.3rem;
+    color: var(--color-text-muted);
 }
+
 .grade-loading.error {
-    color: #d9534f;
+    color: var(--color-red);
 }

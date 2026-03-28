@@ -55,7 +55,7 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
 
-        config.setAllowedOriginPatterns(List.of("http://localhost:3000", "http://127.0.0.1:3000", "http://localhost:*"));
+        config.setAllowedOriginPatterns(List.of("http://localhost:3000", "http://localhost:3001", "http://127.0.0.1:3000", "http://127.0.0.1:3001", "http://localhost:*"));
         config.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
         config.setAllowedHeaders(List.of("Origin","Content-Type","Accept","Authorization"));
         config.addExposedHeader("Authorization");
@@ -71,7 +71,7 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(request -> {
                     CorsConfiguration c = new CorsConfiguration();
                     c.setAllowCredentials(true);
-                    c.setAllowedOriginPatterns(List.of("http://localhost:3000", "http://127.0.0.1:3000"));
+                    c.setAllowedOriginPatterns(List.of("http://localhost:3000", "http://localhost:3001", "http://127.0.0.1:3000", "http://127.0.0.1:3001"));
                     c.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
                     c.setAllowedHeaders(List.of("Origin","Content-Type","Accept","Authorization"));
                     c.addExposedHeader("Authorization");

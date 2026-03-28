@@ -174,7 +174,7 @@ export default function StudentPage() {
 
 
     return (
-        <div className="professor-page-container">
+        <div className="dashboard-wrapper">
             <VideoBackground />
 
 

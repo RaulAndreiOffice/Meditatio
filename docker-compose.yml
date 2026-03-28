@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: meditatio-postgres
+    environment:
+      POSTGRES_DB: MeditatiioDB
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 2230
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - meditatio-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d MeditatiioDB"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./MeditatiIO
+      dockerfile: Dockerfile
+    container_name: meditatio-backend
+    ports:
+      - "9090:9090"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/MeditatiioDB
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 2230
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - meditatio-network
+
+volumes:
+  postgres_data:
+
+networks:
+  meditatio-network:
+    driver: bridge

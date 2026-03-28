@@ -2,39 +2,93 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 40px;
-    height: 100vh;
+    gap: 24px;
+    padding: 32px 28px;
+    min-height: calc(100vh - 60px);
+    position: relative;
+    z-index: 1;
 }
 
 .assignment-left {
-    width: 60%;
-    background: #f9f9f9;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    flex: 3;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(8px);
+    color: var(--color-text);
+}
+
+.assignment-left h2 {
+    margin: 0 0 16px 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.assignment-left p {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+}
+
+.assignment-left a {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 8px 18px;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-pill);
+    color: var(--color-accent);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background var(--transition), color var(--transition);
+}
+
+.assignment-left a:hover {
+    background: var(--color-accent);
+    color: white;
 }
 
 .assignment-right {
-    width: 35%;
+    flex: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #eef6ff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(8px);
+    color: var(--color-text);
+}
+
+.assignment-right input[type="file"] {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    width: 100%;
 }
 
 .assignment-right button {
     margin-top: 20px;
-    padding: 10px 20px;
-    background: #007bff;
+    padding: 11px 28px;
+    background: var(--color-green);
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: var(--radius-pill);
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: var(--font);
     cursor: pointer;
+    box-shadow: 0 4px 14px rgba(34,197,94,0.3);
+    transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .assignment-right button:hover {
-    background: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(34,197,94,0.4);
 }

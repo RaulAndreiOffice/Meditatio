@@ -1,133 +1,73 @@
-.student-page {
+.dashboard-wrapper {
     display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Aliniem sus */
-    min-height: calc(100vh - 70px); /* Ajustează înălțimea dacă ai navbar (70px e un exemplu) */
-    padding: 40px;
-    background-color: #f4f7fc; /* Un fundal neutru */
-}
-
-.content-box {
-    background-color: #ffffff; /* Fundal alb */
-    padding: 30px 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    color: #333; /* Text întunecat pentru lizibilitate */
-    width: 100%;
-    max-width: 800px;
-    text-align: center;
+    gap: 24px;
+    padding: 28px;
+    align-items: flex-start;
+    min-height: calc(100vh - 60px);
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
 
-.content-box h2 {
-    color: #1b3c73;
-    margin-top: 0;
+.Patrat_stanga,
+.Patrat_mijloc,
+.Patrat_dreapta {
+    flex: 1;
+    min-width: 0;
+    min-height: 500px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--color-text);
+    text-align: left;
+    overflow-y: auto;
 }
 
-.loading-message, .error-message {
+.Patrat_stanga h3,
+.Patrat_mijloc h3,
+.Patrat_dreapta h3 {
     font-size: 1.1rem;
-    color: #666;
-    padding: 20px 0;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 16px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--color-accent);
+}
+
+.loading-message {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    padding: 16px 0;
 }
 
 .error-message {
-    color: #d9534f;
-}
-
-/* --- STILURI NOI PENTRU TABEL --- */
-
-.assignment-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    text-align: left;
-}
-
-.assignment-table th,
-.assignment-table td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #ddd;
-}
-
-.assignment-table th {
-    background-color: #f9fafb;
-    font-size: 1rem;
-    color: #555;
-    text-transform: uppercase; /* Litere mari pentru header */
+    font-size: 0.95rem;
+    color: var(--color-red);
+    padding: 16px 0;
 }
 
 .clickable-row {
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color var(--transition);
 }
 
 .clickable-row:hover {
-    background-color: #f0f6ff; /* Albastru foarte deschis la hover */
+    background-color: rgba(124, 58, 237, 0.1);
 }
 
-
-.Patrat_stanga {
-    background-color: rgba(25, 30, 30, 0.8); /* Albastru */
-    padding: 40px;
-    border-radius: 15px; /* Colțuri rotunjite */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Umbră pentru efect de adâncime */
-    color: white; /* Culoarea textului (etichetelor) */
-
-    top: 50px;
-    left: 50px;
-
-    width: 500px;
-    height: 600px;
-
-
-
+.content-box {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: var(--shadow-card);
+    color: var(--color-text);
+    width: 100%;
+    max-width: 600px;
     text-align: center;
     position: relative;
-
     z-index: 2;
-
-}
-.Patrat_mijloc {
-    background-color: rgba(25, 30, 30, 0.8); /* Albastru */
-    padding: 40px;
-    border-radius: 15px; /* Colțuri rotunjite */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Umbră pentru efect de adâncime */
-    color: white; /* Culoarea textului (etichetelor) */
-
-    top: -628px;
-    left: 675px;
-
-    width: 500px;
-    height: 600px;
-
-
-
-    text-align: center;
-    position: relative;
-
-    z-index: 2;
-
-}
-
-.Patrat_dreapta {
-    background-color: rgba(25, 30, 30, 0.8); /* Albastru */
-    padding: 40px;
-    border-radius: 15px; /* Colțuri rotunjite */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Umbră pentru efect de adâncime */
-    color: white; /* Culoarea textului (etichetelor) */
-
-    top: -1310px;
-    left: 1300px;
-
-    width: 500px;
-    height: 600px;
-
-
-
-    text-align: center;
-    position: relative;
-
-    z-index: 2;
-
 }

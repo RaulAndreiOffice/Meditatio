@@ -188,7 +188,7 @@ const ProfessorPage: React.FC = () => {
 
     // Return JSX
     return (
-        <div className="professor-page-container">
+        <div className="dashboard-wrapper">
             <VideoBackground/>
             <div className="Patrat_stanga">
                 <div className="dashboard-card card-welcome">

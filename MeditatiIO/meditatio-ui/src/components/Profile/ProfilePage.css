@@ -1,63 +1,33 @@
-/* Stilurile existente pentru .profile-page, .profile-wrapper, .profile-container... */
 .profile-container {
     position: relative;
-    min-height: 100vh;      /* ocupă toată înălțimea ecranului */
+    min-height: calc(100vh - 60px);
     display: flex;
-    justify-content: center; /* centru orizontal */
-    align-items: center;     /* centru vertical */
-}
-.profile {
-    background: rgba(30, 30, 30, 0.85);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    color: white;
-
-    width: 50vw;        /* jumătate din lățimea ecranului */
-    height: 50vh;       /* jumătate din înălțimea ecranului */
-    min-width: 400px;
-    max-width: 600px;
-    min-height: 300px;
-
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* centru vertical conținut din pătrat */
-    align-items: center;     /* centru orizontal conținut din pătrat */
-    flex-basis: 50%;
-    flex-grow: 0;
-    flex-shrink: 1;
-
-    position: relative;
-    z-index: 2; /* să fie peste VideoBackground */
+    justify-content: center;
+    align-items: center;
+    padding: 28px;
 }
 
 .profile-wrapper {
     display: flex;
     flex-direction: row;
-    gap: 40px;
+    gap: 24px;
     justify-content: center;
     align-items: flex-start;
     width: 100%;
     max-width: 1100px;
     position: relative;
-    z-index: 3;
+    z-index: 2;
 }
 
-.profile-container {
-
-}
-
-.profile-container h1 {
-    margin-bottom: 25px;
-    font-size: 2.5rem;
-}
 .profile {
-    background: rgba(30, 30, 30, 0.85);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    color: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    color: var(--color-text);
     width: 100%;
     max-width: 500px;
     text-align: center;
@@ -66,121 +36,185 @@
     flex-shrink: 1;
 }
 
+.profile h1 {
+    margin: 0 0 24px 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
 .profile-divider {
-    margin: 30px 0;
+    margin: 24px 0;
     border: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-top: 1px solid var(--color-border);
 }
-
-.update-button, .delete-button {
-    /* ... stilurile existente ... */
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s;
-    margin-top: 10px;
-}
-/* ... etc ... */
-
-
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     text-align: left;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
 }
 
 .form-group input {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    box-sizing: border-box;
-    color: #333;
-}
-.Patrat_mijloc h3 {
-    font-size: 1.5rem;
-    color: #ffffff;
-    border-bottom: 2px solid #0056b3;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+    padding: 11px 14px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-family: var(--font);
+    color: var(--color-text);
+    outline: none;
+    transition: border-color var(--transition);
 }
 
-.loading-message, .error-message {
-    font-size: 1.1rem;
-    color: #ccc;
-    padding: 20px 0;
+.form-group input:focus {
+    border-color: var(--color-accent);
+}
+
+.update-button {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-2));
+    color: white;
+    border: none;
+    border-radius: var(--radius-pill);
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font);
+    cursor: pointer;
+    margin-top: 8px;
+    box-shadow: var(--shadow-btn);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.update-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+.delete-button {
+    width: 100%;
+    padding: 13px;
+    background: transparent;
+    color: var(--color-red);
+    border: 1px solid var(--color-red);
+    border-radius: var(--radius-pill);
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font);
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.delete-button:hover {
+    background: var(--color-red);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(239, 68, 68, 0.35);
+}
+
+.loading-message {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    padding: 16px 0;
 }
 
 .error-message {
-    color: #ff8a80; /* Roșu deschis */
+    font-size: 0.95rem;
+    color: var(--color-red);
+    padding: 16px 0;
+}
+
+/* Dashboard tables shared styles */
+.Patrat_mijloc h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text);
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 10px;
+    margin-bottom: 16px;
 }
 
 .assignment-table-prof {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
-    color: #e0e0e0; /* Culoare text deschisă */
+    margin-top: 12px;
+    color: var(--color-text);
     text-align: left;
+    font-size: 0.9rem;
 }
 
 .assignment-table-prof th,
 .assignment-table-prof td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #555; /* Linie separator mai vizibilă */
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--color-border);
 }
 
 .assignment-table-prof th {
-    background-color: rgba(0, 0, 0, 0.2); /* Fundal header ușor diferit */
-    font-size: 1rem;
-    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
     text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: transparent;
 }
 
 .assignment-table-prof tr {
-    transition: background-color 0.2s;
+    transition: background-color var(--transition);
 }
 
 .assignment-table-prof tr:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Fundal la hover */
+    background-color: rgba(124, 58, 237, 0.08);
+}
+
+.clickable-row {
+    cursor: pointer;
 }
 
 .actions-cell {
     display: flex;
-    gap: 10px;
+    gap: 8px;
 }
 
 .action-button {
-    padding: 6px 12px;
+    padding: 6px 14px;
     border: none;
-    border-radius: 5px;
+    border-radius: var(--radius-pill);
     cursor: pointer;
-    font-weight: bold;
-    transition: all 0.2s;
+    font-weight: 600;
+    font-size: 0.8rem;
+    font-family: var(--font);
+    transition: transform var(--transition), opacity var(--transition);
+}
+
+.action-button:hover {
+    transform: translateY(-1px);
+    opacity: 0.88;
 }
 
 .grade-button {
-    background-color: #007bff;
+    background: var(--color-blue);
     color: white;
-}
-.grade-button:hover {
-    background-color: #0056b3;
 }
 
-.delete-button {
-    background-color: #dc3545;
+.delete-button.action-button {
+    background: var(--color-red);
     color: white;
-}
-.delete-button:hover {
-    background-color: #c82333;
+    border: none;
+    width: auto;
+    padding: 6px 14px;
 }
